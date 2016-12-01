@@ -3,11 +3,6 @@ var mat4 = require("../../src/gl-matrix/mat4.js");
 var vec3 = require("../../src/gl-matrix/vec3.js");
 var quat = require("../../src/gl-matrix/quat.js");
 
-// Inject the polyfill for testing
-if (!glMatrix.SIMD_AVAILABLE) {
-  require("simd").shim();
-}
-
 function buildMat4Tests(useSIMD) {
     mat4.TEST_PATH = useSIMD ? mat4.SIMD : mat4.scalar;
 
@@ -927,4 +922,3 @@ function buildMat4Tests(useSIMD) {
 }
 
 describe("mat4 (SISD)", buildMat4Tests(false));
-describe("mat4 (SIMD)", buildMat4Tests(true));
