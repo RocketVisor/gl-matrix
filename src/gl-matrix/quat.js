@@ -1,4 +1,3 @@
-var glMatrix = require("./common.js");
 var mat3 = require("./mat3.js");
 var vec3 = require("./vec3.js");
 var vec4 = require("./vec4.js");
