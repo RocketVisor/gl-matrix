@@ -249,7 +249,7 @@ export function scaleAndAdd(out, a, b, scale) {
 export function distance(a, b) {
     var x = b[0] - a[0],
         y = b[1] - a[1];
-    return Math.sqrt(x*x + y*y);
+    return Math.sqrt(x * x + y * y);
 }
 
 /**
@@ -268,7 +268,7 @@ export {distance as dist};
 export function squaredDistance(a, b) {
     var x = b[0] - a[0],
         y = b[1] - a[1];
-    return x*x + y*y;
+    return x * x + y * y;
 }
 
 /**
@@ -286,7 +286,7 @@ export {squaredDistance as sqrDist};
 export function length(a) {
     var x = a[0],
         y = a[1];
-    return Math.sqrt(x*x + y*y);
+    return Math.sqrt(x * x + y * y);
 }
 
 /**
@@ -304,7 +304,7 @@ export {length as len};
 export function squaredLength(a) {
     var x = a[0],
         y = a[1];
-    return x*x + y*y;
+    return x * x + y * y;
 }
 
 /**
@@ -334,9 +334,9 @@ export function negate(out, a) {
  * @returns {vec2} out
  */
 export function inverse(out, a) {
-  out[0] = 1.0 / a[0];
-  out[1] = 1.0 / a[1];
-  return out;
+    out[0] = 1.0 / a[0];
+    out[1] = 1.0 / a[1];
+    return out;
 }
 
 /**
@@ -349,7 +349,7 @@ export function inverse(out, a) {
 export function normalize(out, a) {
     var x = a[0],
         y = a[1];
-    var len = x*x + y*y;
+    var len = x * x + y * y;
     if (len > 0) {
         //TODO: evaluate use of glm_invsqrt here?
         len = 1 / Math.sqrt(len);
@@ -501,24 +501,24 @@ var vec = create();
  */
 export function forEach(a, stride, offset, count, fn, arg) {
     var i, l;
-    if(!stride) {
+    if (!stride) {
         stride = 2;
     }
 
-    if(!offset) {
+    if (!offset) {
         offset = 0;
     }
 
-    if(count) {
+    if (count) {
         l = Math.min((count * stride) + offset, a.length);
     } else {
         l = a.length;
     }
 
-    for(i = offset; i < l; i += stride) {
-        vec[0] = a[i]; vec[1] = a[i+1];
+    for (i = offset; i < l; i += stride) {
+        vec[0] = a[i]; vec[1] = a[i + 1];
         fn(vec, vec, arg);
-        a[i] = vec[0]; a[i+1] = vec[1];
+        a[i] = vec[0]; a[i + 1] = vec[1];
     }
 
     return a;

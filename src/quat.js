@@ -21,9 +21,19 @@ export function create() {
     return out;
 }
 
+/**
+ * Normalize a quat
+ *
+ * @param {quat} out the receiving quaternion
+ * @param {quat} a quaternion to normalize
+ * @returns {quat} out
+ * @function
+ */
+export var normalize = vec4.normalize;
+
 var tmpvec3 = vec3.create();
-var xUnitVec3 = vec3.fromValues(1,0,0);
-var yUnitVec3 = vec3.fromValues(0,1,0);
+var xUnitVec3 = vec3.fromValues(1, 0, 0);
+var yUnitVec3 = vec3.fromValues(0, 1, 0);
 
 /**
  * Sets a quaternion to represent the shortest rotation from one
@@ -175,22 +185,22 @@ export function setAxisAngle(out, axis, rad) {
  * Example: The quaternion formed by axis [0, 0, 1] and
  *  angle -90 is the same as the quaternion formed by
  *  [0, 0, 1] and 270. This method favors the latter.
- * @param  {vec3} out_axis  Vector receiving the axis of rotation
+ * @param  {vec3} out  Vector receiving the axis of rotation
  * @param  {quat} q     Quaternion to be decomposed
  * @return {Number}     Angle, in radians, of the rotation
  */
-export function getAxisAngle(out_axis, q) {
+export function getAxisAngle(out, q) {
     var rad = Math.acos(q[3]) * 2.0;
     var s = Math.sin(rad / 2.0);
-    if (s != 0.0) {
-        out_axis[0] = q[0] / s;
-        out_axis[1] = q[1] / s;
-        out_axis[2] = q[2] / s;
+    if (s !== 0.0) {
+        out[0] = q[0] / s;
+        out[1] = q[1] / s;
+        out[2] = q[2] / s;
     } else {
         // If s is zero, return any axis (no rotation - axis does not matter)
-        out_axis[0] = 1;
-        out_axis[1] = 0;
-        out_axis[2] = 0;
+        out[0] = 1;
+        out[1] = 0;
+        out[2] = 0;
     }
     return rad;
 }
@@ -367,15 +377,15 @@ export function slerp(out, a, b, t) {
     // calc cosine
     cosom = ax * bx + ay * by + az * bz + aw * bw;
     // adjust signs (if necessary)
-    if ( cosom < 0.0 ) {
+    if (cosom < 0.0) {
         cosom = -cosom;
-        bx = - bx;
-        by = - by;
-        bz = - bz;
-        bw = - bw;
+        bx = -bx;
+        by = -by;
+        bz = -bz;
+        bw = -bw;
     }
     // calculate coefficients
-    if ( (1.0 - cosom) > 0.000001 ) {
+    if ((1.0 - cosom) > 0.000001) {
         // standard case (slerp)
         omega  = Math.acos(cosom);
         sinom  = Math.sin(omega);
@@ -426,15 +436,15 @@ export function sqlerp(out, a, b, c, d, t) {
  */
 export function invert(out, a) {
     var a0 = a[0], a1 = a[1], a2 = a[2], a3 = a[3],
-        dot = a0*a0 + a1*a1 + a2*a2 + a3*a3,
-        invDot = dot ? 1.0/dot : 0;
+        dot = a0 * a0 + a1 * a1 + a2 * a2 + a3 * a3,
+        invDot = dot ? 1.0 / dot : 0;
 
     // TODO: Would be faster to return [0,0,0,0] immediately if dot == 0
 
-    out[0] = -a0*invDot;
-    out[1] = -a1*invDot;
-    out[2] = -a2*invDot;
-    out[3] = a3*invDot;
+    out[0] = -a0 * invDot;
+    out[1] = -a1 * invDot;
+    out[2] = -a2 * invDot;
+    out[3] = a3 * invDot;
     return out;
 }
 
@@ -467,7 +477,7 @@ export var length = vec4.length;
  * Alias for {@link quat.length}
  * @function
  */
- export var len = vec4.length;
+export var len = vec4.length;
 
 /**
  * Calculates the squared length of a quat
@@ -483,16 +493,6 @@ export var squaredLength = vec4.squaredLength;
  * @function
  */
 export var sqrLen = vec4.squaredLength;
-
-/**
- * Normalize a quat
- *
- * @param {quat} out the receiving quaternion
- * @param {quat} a quaternion to normalize
- * @returns {quat} out
- * @function
- */
-export var normalize = vec4.normalize;
 
 /**
  * Creates a quaternion from the given 3x3 rotation matrix.
@@ -511,30 +511,30 @@ export function fromMat3(out, m) {
     var fTrace = m[0] + m[4] + m[8];
     var fRoot;
 
-    if ( fTrace > 0.0 ) {
+    if (fTrace > 0.0) {
         // |w| > 1/2, may as well choose w > 1/2
         fRoot = Math.sqrt(fTrace + 1.0);  // 2w
         out[3] = 0.5 * fRoot;
-        fRoot = 0.5/fRoot;  // 1/(4w)
-        out[0] = (m[5]-m[7])*fRoot;
-        out[1] = (m[6]-m[2])*fRoot;
-        out[2] = (m[1]-m[3])*fRoot;
+        fRoot = 0.5 / fRoot;  // 1/(4w)
+        out[0] = (m[5] - m[7]) * fRoot;
+        out[1] = (m[6] - m[2]) * fRoot;
+        out[2] = (m[1] - m[3]) * fRoot;
     } else {
         // |w| <= 1/2
         var i = 0;
-        if ( m[4] > m[0] )
-          i = 1;
-        if ( m[8] > m[i*3+i] )
-          i = 2;
-        var j = (i+1)%3;
-        var k = (i+2)%3;
+        if (m[4] > m[0])
+            i = 1;
+        if (m[8] > m[i * 3 + i])
+            i = 2;
+        var j = (i + 1) % 3;
+        var k = (i + 2) % 3;
 
-        fRoot = Math.sqrt(m[i*3+i]-m[j*3+j]-m[k*3+k] + 1.0);
+        fRoot = Math.sqrt(m[i * 3 + i] - m[j * 3 + j] - m[k * 3 + k] + 1.0);
         out[i] = 0.5 * fRoot;
         fRoot = 0.5 / fRoot;
-        out[3] = (m[j*3+k] - m[k*3+j]) * fRoot;
-        out[j] = (m[j*3+i] + m[i*3+j]) * fRoot;
-        out[k] = (m[k*3+i] + m[i*3+k]) * fRoot;
+        out[3] = (m[j * 3 + k] - m[k * 3 + j]) * fRoot;
+        out[j] = (m[j * 3 + i] + m[i * 3 + j]) * fRoot;
+        out[k] = (m[k * 3 + i] + m[i * 3 + k]) * fRoot;
     }
 
     return out;

@@ -268,7 +268,7 @@ export function distance(a, b) {
     var x = b[0] - a[0],
         y = b[1] - a[1],
         z = b[2] - a[2];
-    return Math.sqrt(x*x + y*y + z*z);
+    return Math.sqrt(x * x + y * y + z * z);
 }
 
 /**
@@ -288,7 +288,7 @@ export function squaredDistance(a, b) {
     var x = b[0] - a[0],
         y = b[1] - a[1],
         z = b[2] - a[2];
-    return x*x + y*y + z*z;
+    return x * x + y * y + z * z;
 }
 
 /**
@@ -307,7 +307,7 @@ export function length(a) {
     var x = a[0],
         y = a[1],
         z = a[2];
-    return Math.sqrt(x*x + y*y + z*z);
+    return Math.sqrt(x * x + y * y + z * z);
 }
 
 /**
@@ -326,7 +326,7 @@ export function squaredLength(a) {
     var x = a[0],
         y = a[1],
         z = a[2];
-    return x*x + y*y + z*z;
+    return x * x + y * y + z * z;
 }
 
 /**
@@ -357,10 +357,10 @@ export function negate(out, a) {
  * @returns {vec3} out
  */
 export function inverse(out, a) {
-  out[0] = 1.0 / a[0];
-  out[1] = 1.0 / a[1];
-  out[2] = 1.0 / a[2];
-  return out;
+    out[0] = 1.0 / a[0];
+    out[1] = 1.0 / a[1];
+    out[2] = 1.0 / a[2];
+    return out;
 }
 
 /**
@@ -374,7 +374,7 @@ export function normalize(out, a) {
     var x = a[0],
         y = a[1],
         z = a[2];
-    var len = x*x + y*y + z*z;
+    var len = x * x + y * y + z * z;
     if (len > 0) {
         //TODO: evaluate use of glm_invsqrt here?
         len = 1 / Math.sqrt(len);
@@ -445,17 +445,17 @@ export function lerp(out, a, b, t) {
  * @returns {vec3} out
  */
 export function hermite(out, a, b, c, d, t) {
-  var factorTimes2 = t * t,
-      factor1 = factorTimes2 * (2 * t - 3) + 1,
-      factor2 = factorTimes2 * (t - 2) + t,
-      factor3 = factorTimes2 * (t - 1),
-      factor4 = factorTimes2 * (3 - 2 * t);
+    var factorTimes2 = t * t,
+        factor1 = factorTimes2 * (2 * t - 3) + 1,
+        factor2 = factorTimes2 * (t - 2) + t,
+        factor3 = factorTimes2 * (t - 1),
+        factor4 = factorTimes2 * (3 - 2 * t);
 
-  out[0] = a[0] * factor1 + b[0] * factor2 + c[0] * factor3 + d[0] * factor4;
-  out[1] = a[1] * factor1 + b[1] * factor2 + c[1] * factor3 + d[1] * factor4;
-  out[2] = a[2] * factor1 + b[2] * factor2 + c[2] * factor3 + d[2] * factor4;
+    out[0] = a[0] * factor1 + b[0] * factor2 + c[0] * factor3 + d[0] * factor4;
+    out[1] = a[1] * factor1 + b[1] * factor2 + c[1] * factor3 + d[1] * factor4;
+    out[2] = a[2] * factor1 + b[2] * factor2 + c[2] * factor3 + d[2] * factor4;
 
-  return out;
+    return out;
 }
 
 /**
@@ -470,19 +470,19 @@ export function hermite(out, a, b, c, d, t) {
  * @returns {vec3} out
  */
 export function bezier(out, a, b, c, d, t) {
-  var inverseFactor = 1 - t,
-      inverseFactorTimesTwo = inverseFactor * inverseFactor,
-      factorTimes2 = t * t,
-      factor1 = inverseFactorTimesTwo * inverseFactor,
-      factor2 = 3 * t * inverseFactorTimesTwo,
-      factor3 = 3 * factorTimes2 * inverseFactor,
-      factor4 = factorTimes2 * t;
+    var inverseFactor = 1 - t,
+        inverseFactorTimesTwo = inverseFactor * inverseFactor,
+        factorTimes2 = t * t,
+        factor1 = inverseFactorTimesTwo * inverseFactor,
+        factor2 = 3 * t * inverseFactorTimesTwo,
+        factor3 = 3 * factorTimes2 * inverseFactor,
+        factor4 = factorTimes2 * t;
 
-  out[0] = a[0] * factor1 + b[0] * factor2 + c[0] * factor3 + d[0] * factor4;
-  out[1] = a[1] * factor1 + b[1] * factor2 + c[1] * factor3 + d[1] * factor4;
-  out[2] = a[2] * factor1 + b[2] * factor2 + c[2] * factor3 + d[2] * factor4;
+    out[0] = a[0] * factor1 + b[0] * factor2 + c[0] * factor3 + d[0] * factor4;
+    out[1] = a[1] * factor1 + b[1] * factor2 + c[1] * factor3 + d[1] * factor4;
+    out[2] = a[2] * factor1 + b[2] * factor2 + c[2] * factor3 + d[2] * factor4;
 
-  return out;
+    return out;
 }
 
 /**
@@ -497,7 +497,7 @@ export function random(out, scale) {
 
     var r = Math.random() * 2.0 * Math.PI;
     var z = (Math.random() * 2.0) - 1.0;
-    var zScale = Math.sqrt(1.0-z*z) * scale;
+    var zScale = Math.sqrt(1.0 - z * z) * scale;
 
     out[0] = Math.cos(r) * zScale;
     out[1] = Math.sin(r) * zScale;
@@ -575,24 +575,24 @@ export function transformQuat(out, a, q) {
  * @param {Number} c The angle of rotation
  * @returns {vec3} out
  */
-export function rotateX(out, a, b, c){
-   var p = [], r=[];
-	  //Translate point to the origin
-	  p[0] = a[0] - b[0];
-	  p[1] = a[1] - b[1];
-  	p[2] = a[2] - b[2];
+export function rotateX(out, a, b, c) {
+    var p = [], r = [];
+    //Translate point to the origin
+    p[0] = a[0] - b[0];
+    p[1] = a[1] - b[1];
+    p[2] = a[2] - b[2];
 
-	  //perform rotation
-	  r[0] = p[0];
-	  r[1] = p[1]*Math.cos(c) - p[2]*Math.sin(c);
-	  r[2] = p[1]*Math.sin(c) + p[2]*Math.cos(c);
+    //perform rotation
+    r[0] = p[0];
+    r[1] = p[1] * Math.cos(c) - p[2] * Math.sin(c);
+    r[2] = p[1] * Math.sin(c) + p[2] * Math.cos(c);
 
-	  //translate to correct position
-	  out[0] = r[0] + b[0];
-	  out[1] = r[1] + b[1];
-	  out[2] = r[2] + b[2];
+    //translate to correct position
+    out[0] = r[0] + b[0];
+    out[1] = r[1] + b[1];
+    out[2] = r[2] + b[2];
 
-  	return out;
+    return out;
 }
 
 /**
@@ -603,24 +603,24 @@ export function rotateX(out, a, b, c){
  * @param {Number} c The angle of rotation
  * @returns {vec3} out
  */
-export function rotateY(out, a, b, c){
-  	var p = [], r=[];
-  	//Translate point to the origin
-  	p[0] = a[0] - b[0];
-  	p[1] = a[1] - b[1];
-  	p[2] = a[2] - b[2];
+export function rotateY(out, a, b, c) {
+    var p = [], r = [];
+    //Translate point to the origin
+    p[0] = a[0] - b[0];
+    p[1] = a[1] - b[1];
+    p[2] = a[2] - b[2];
 
-  	//perform rotation
-  	r[0] = p[2]*Math.sin(c) + p[0]*Math.cos(c);
-  	r[1] = p[1];
-  	r[2] = p[2]*Math.cos(c) - p[0]*Math.sin(c);
+    //perform rotation
+    r[0] = p[2] * Math.sin(c) + p[0] * Math.cos(c);
+    r[1] = p[1];
+    r[2] = p[2] * Math.cos(c) - p[0] * Math.sin(c);
 
-  	//translate to correct position
-  	out[0] = r[0] + b[0];
-  	out[1] = r[1] + b[1];
-  	out[2] = r[2] + b[2];
+    //translate to correct position
+    out[0] = r[0] + b[0];
+    out[1] = r[1] + b[1];
+    out[2] = r[2] + b[2];
 
-  	return out;
+    return out;
 }
 
 /**
@@ -631,24 +631,24 @@ export function rotateY(out, a, b, c){
  * @param {Number} c The angle of rotation
  * @returns {vec3} out
  */
-export function rotateZ(out, a, b, c){
-  	var p = [], r=[];
-  	//Translate point to the origin
-  	p[0] = a[0] - b[0];
-  	p[1] = a[1] - b[1];
-  	p[2] = a[2] - b[2];
+export function rotateZ(out, a, b, c) {
+    var p = [], r = [];
+    //Translate point to the origin
+    p[0] = a[0] - b[0];
+    p[1] = a[1] - b[1];
+    p[2] = a[2] - b[2];
 
-  	//perform rotation
-  	r[0] = p[0]*Math.cos(c) - p[1]*Math.sin(c);
-  	r[1] = p[0]*Math.sin(c) + p[1]*Math.cos(c);
-  	r[2] = p[2];
+    //perform rotation
+    r[0] = p[0] * Math.cos(c) - p[1] * Math.sin(c);
+    r[1] = p[0] * Math.sin(c) + p[1] * Math.cos(c);
+    r[2] = p[2];
 
-  	//translate to correct position
-  	out[0] = r[0] + b[0];
-  	out[1] = r[1] + b[1];
-  	out[2] = r[2] + b[2];
+    //translate to correct position
+    out[0] = r[0] + b[0];
+    out[1] = r[1] + b[1];
+    out[2] = r[2] + b[2];
 
-  	return out;
+    return out;
 }
 
 var vec = create();
@@ -666,24 +666,24 @@ var vec = create();
  */
 export function forEach(a, stride, offset, count, fn, arg) {
     var i, l;
-    if(!stride) {
+    if (!stride) {
         stride = 3;
     }
 
-    if(!offset) {
+    if (!offset) {
         offset = 0;
     }
 
-    if(count) {
+    if (count) {
         l = Math.min((count * stride) + offset, a.length);
     } else {
         l = a.length;
     }
 
-    for(i = offset; i < l; i += stride) {
-        vec[0] = a[i]; vec[1] = a[i+1]; vec[2] = a[i+2];
+    for (i = offset; i < l; i += stride) {
+        vec[0] = a[i]; vec[1] = a[i + 1]; vec[2] = a[i + 2];
         fn(vec, vec, arg);
-        a[i] = vec[0]; a[i+1] = vec[1]; a[i+2] = vec[2];
+        a[i] = vec[0]; a[i + 1] = vec[1]; a[i + 2] = vec[2];
     }
 
     return a;
@@ -705,10 +705,9 @@ export function angle(a, b) {
 
     var cosine = dot(tempA, tempB);
 
-    if(cosine > 1.0) {
+    if (cosine > 1.0) {
         return 0;
-    }
-    else if(cosine < -1.0) {
+    }    else if (cosine < -1.0) {
         return Math.PI;
     } else {
         return Math.acos(cosine);

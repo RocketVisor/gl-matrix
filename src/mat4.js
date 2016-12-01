@@ -373,28 +373,28 @@ export function multiply(out, a, b) {
 
     // Cache only the current line of the second matrix
     var b0  = b[0], b1 = b[1], b2 = b[2], b3 = b[3];
-    out[0] = b0*a00 + b1*a10 + b2*a20 + b3*a30;
-    out[1] = b0*a01 + b1*a11 + b2*a21 + b3*a31;
-    out[2] = b0*a02 + b1*a12 + b2*a22 + b3*a32;
-    out[3] = b0*a03 + b1*a13 + b2*a23 + b3*a33;
+    out[0] = b0 * a00 + b1 * a10 + b2 * a20 + b3 * a30;
+    out[1] = b0 * a01 + b1 * a11 + b2 * a21 + b3 * a31;
+    out[2] = b0 * a02 + b1 * a12 + b2 * a22 + b3 * a32;
+    out[3] = b0 * a03 + b1 * a13 + b2 * a23 + b3 * a33;
 
     b0 = b[4]; b1 = b[5]; b2 = b[6]; b3 = b[7];
-    out[4] = b0*a00 + b1*a10 + b2*a20 + b3*a30;
-    out[5] = b0*a01 + b1*a11 + b2*a21 + b3*a31;
-    out[6] = b0*a02 + b1*a12 + b2*a22 + b3*a32;
-    out[7] = b0*a03 + b1*a13 + b2*a23 + b3*a33;
+    out[4] = b0 * a00 + b1 * a10 + b2 * a20 + b3 * a30;
+    out[5] = b0 * a01 + b1 * a11 + b2 * a21 + b3 * a31;
+    out[6] = b0 * a02 + b1 * a12 + b2 * a22 + b3 * a32;
+    out[7] = b0 * a03 + b1 * a13 + b2 * a23 + b3 * a33;
 
     b0 = b[8]; b1 = b[9]; b2 = b[10]; b3 = b[11];
-    out[8] = b0*a00 + b1*a10 + b2*a20 + b3*a30;
-    out[9] = b0*a01 + b1*a11 + b2*a21 + b3*a31;
-    out[10] = b0*a02 + b1*a12 + b2*a22 + b3*a32;
-    out[11] = b0*a03 + b1*a13 + b2*a23 + b3*a33;
+    out[8] = b0 * a00 + b1 * a10 + b2 * a20 + b3 * a30;
+    out[9] = b0 * a01 + b1 * a11 + b2 * a21 + b3 * a31;
+    out[10] = b0 * a02 + b1 * a12 + b2 * a22 + b3 * a32;
+    out[11] = b0 * a03 + b1 * a13 + b2 * a23 + b3 * a33;
 
     b0 = b[12]; b1 = b[13]; b2 = b[14]; b3 = b[15];
-    out[12] = b0*a00 + b1*a10 + b2*a20 + b3*a30;
-    out[13] = b0*a01 + b1*a11 + b2*a21 + b3*a31;
-    out[14] = b0*a02 + b1*a12 + b2*a22 + b3*a32;
-    out[15] = b0*a03 + b1*a13 + b2*a23 + b3*a33;
+    out[12] = b0 * a00 + b1 * a10 + b2 * a20 + b3 * a30;
+    out[13] = b0 * a01 + b1 * a11 + b2 * a21 + b3 * a31;
+    out[14] = b0 * a02 + b1 * a12 + b2 * a22 + b3 * a32;
+    out[15] = b0 * a03 + b1 * a13 + b2 * a23 + b3 * a33;
     return out;
 }
 
@@ -402,7 +402,7 @@ export function multiply(out, a, b) {
  * Alias for {@link mat4.multiply}
  * @function
  */
-export {multiply as mul}
+export {multiply as mul};
 
 /**
  * Translate a mat4 by the given vector
@@ -940,11 +940,11 @@ export function fromRotationTranslation(out, q, v) {
  * @return {vec3} out
  */
 export function getTranslation(out, mat) {
-  out[0] = mat[12];
-  out[1] = mat[13];
-  out[2] = mat[14];
+    out[0] = mat[12];
+    out[1] = mat[13];
+    out[2] = mat[14];
 
-  return out;
+    return out;
 }
 
 /**
@@ -958,21 +958,21 @@ export function getTranslation(out, mat) {
  * @return {vec3} out
  */
 export function getScaling(out, mat) {
-  var m11 = mat[0],
-      m12 = mat[1],
-      m13 = mat[2],
-      m21 = mat[4],
-      m22 = mat[5],
-      m23 = mat[6],
-      m31 = mat[8],
-      m32 = mat[9],
-      m33 = mat[10];
+    var m11 = mat[0],
+        m12 = mat[1],
+        m13 = mat[2],
+        m21 = mat[4],
+        m22 = mat[5],
+        m23 = mat[6],
+        m31 = mat[8],
+        m32 = mat[9],
+        m33 = mat[10];
 
-  out[0] = Math.sqrt(m11 * m11 + m12 * m12 + m13 * m13);
-  out[1] = Math.sqrt(m21 * m21 + m22 * m22 + m23 * m23);
-  out[2] = Math.sqrt(m31 * m31 + m32 * m32 + m33 * m33);
+    out[0] = Math.sqrt(m11 * m11 + m12 * m12 + m13 * m13);
+    out[1] = Math.sqrt(m21 * m21 + m22 * m22 + m23 * m23);
+    out[2] = Math.sqrt(m31 * m31 + m32 * m32 + m33 * m33);
 
-  return out;
+    return out;
 }
 
 /**
@@ -986,36 +986,36 @@ export function getScaling(out, mat) {
  */
 export function getRotation(out, mat) {
   // Algorithm taken from http://www.euclideanspace.com/maths/geometry/rotations/conversions/matrixToQuaternion/index.htm
-  var trace = mat[0] + mat[5] + mat[10];
-  var S = 0;
+    var trace = mat[0] + mat[5] + mat[10];
+    var S = 0;
 
-  if (trace > 0) {
-    S = Math.sqrt(trace + 1.0) * 2;
-    out[3] = 0.25 * S;
-    out[0] = (mat[6] - mat[9]) / S;
-    out[1] = (mat[8] - mat[2]) / S;
-    out[2] = (mat[1] - mat[4]) / S;
-  } else if ((mat[0] > mat[5])&(mat[0] > mat[10])) {
-    S = Math.sqrt(1.0 + mat[0] - mat[5] - mat[10]) * 2;
-    out[3] = (mat[6] - mat[9]) / S;
-    out[0] = 0.25 * S;
-    out[1] = (mat[1] + mat[4]) / S;
-    out[2] = (mat[8] + mat[2]) / S;
-  } else if (mat[5] > mat[10]) {
-    S = Math.sqrt(1.0 + mat[5] - mat[0] - mat[10]) * 2;
-    out[3] = (mat[8] - mat[2]) / S;
-    out[0] = (mat[1] + mat[4]) / S;
-    out[1] = 0.25 * S;
-    out[2] = (mat[6] + mat[9]) / S;
-  } else {
-    S = Math.sqrt(1.0 + mat[10] - mat[0] - mat[5]) * 2;
-    out[3] = (mat[1] - mat[4]) / S;
-    out[0] = (mat[8] + mat[2]) / S;
-    out[1] = (mat[6] + mat[9]) / S;
-    out[2] = 0.25 * S;
-  }
+    if (trace > 0) {
+        S = Math.sqrt(trace + 1.0) * 2;
+        out[3] = 0.25 * S;
+        out[0] = (mat[6] - mat[9]) / S;
+        out[1] = (mat[8] - mat[2]) / S;
+        out[2] = (mat[1] - mat[4]) / S;
+    } else if ((mat[0] > mat[5]) & (mat[0] > mat[10])) {
+        S = Math.sqrt(1.0 + mat[0] - mat[5] - mat[10]) * 2;
+        out[3] = (mat[6] - mat[9]) / S;
+        out[0] = 0.25 * S;
+        out[1] = (mat[1] + mat[4]) / S;
+        out[2] = (mat[8] + mat[2]) / S;
+    } else if (mat[5] > mat[10]) {
+        S = Math.sqrt(1.0 + mat[5] - mat[0] - mat[10]) * 2;
+        out[3] = (mat[8] - mat[2]) / S;
+        out[0] = (mat[1] + mat[4]) / S;
+        out[1] = 0.25 * S;
+        out[2] = (mat[6] + mat[9]) / S;
+    } else {
+        S = Math.sqrt(1.0 + mat[10] - mat[0] - mat[5]) * 2;
+        out[3] = (mat[1] - mat[4]) / S;
+        out[0] = (mat[8] + mat[2]) / S;
+        out[1] = (mat[6] + mat[9]) / S;
+        out[2] = 0.25 * S;
+    }
 
-  return out;
+    return out;
 }
 
 /**
@@ -1097,47 +1097,47 @@ export function fromRotationTranslationScale(out, q, v, s) {
  */
 export function fromRotationTranslationScaleOrigin(out, q, v, s, o) {
   // Quaternion math
-  var x = q[0], y = q[1], z = q[2], w = q[3],
-      x2 = x + x,
-      y2 = y + y,
-      z2 = z + z,
+    var x = q[0], y = q[1], z = q[2], w = q[3],
+        x2 = x + x,
+        y2 = y + y,
+        z2 = z + z,
 
-      xx = x * x2,
-      xy = x * y2,
-      xz = x * z2,
-      yy = y * y2,
-      yz = y * z2,
-      zz = z * z2,
-      wx = w * x2,
-      wy = w * y2,
-      wz = w * z2,
+        xx = x * x2,
+        xy = x * y2,
+        xz = x * z2,
+        yy = y * y2,
+        yz = y * z2,
+        zz = z * z2,
+        wx = w * x2,
+        wy = w * y2,
+        wz = w * z2,
 
-      sx = s[0],
-      sy = s[1],
-      sz = s[2],
+        sx = s[0],
+        sy = s[1],
+        sz = s[2],
 
-      ox = o[0],
-      oy = o[1],
-      oz = o[2];
+        ox = o[0],
+        oy = o[1],
+        oz = o[2];
 
-  out[0] = (1 - (yy + zz)) * sx;
-  out[1] = (xy + wz) * sx;
-  out[2] = (xz - wy) * sx;
-  out[3] = 0;
-  out[4] = (xy - wz) * sy;
-  out[5] = (1 - (xx + zz)) * sy;
-  out[6] = (yz + wx) * sy;
-  out[7] = 0;
-  out[8] = (xz + wy) * sz;
-  out[9] = (yz - wx) * sz;
-  out[10] = (1 - (xx + yy)) * sz;
-  out[11] = 0;
-  out[12] = v[0] + ox - (out[0] * ox + out[4] * oy + out[8] * oz);
-  out[13] = v[1] + oy - (out[1] * ox + out[5] * oy + out[9] * oz);
-  out[14] = v[2] + oz - (out[2] * ox + out[6] * oy + out[10] * oz);
-  out[15] = 1;
+    out[0] = (1 - (yy + zz)) * sx;
+    out[1] = (xy + wz) * sx;
+    out[2] = (xz - wy) * sx;
+    out[3] = 0;
+    out[4] = (xy - wz) * sy;
+    out[5] = (1 - (xx + zz)) * sy;
+    out[6] = (yz + wx) * sy;
+    out[7] = 0;
+    out[8] = (xz + wy) * sz;
+    out[9] = (yz - wx) * sz;
+    out[10] = (1 - (xx + yy)) * sz;
+    out[11] = 0;
+    out[12] = v[0] + ox - (out[0] * ox + out[4] * oy + out[8] * oz);
+    out[13] = v[1] + oy - (out[1] * ox + out[5] * oy + out[9] * oz);
+    out[14] = v[2] + oz - (out[2] * ox + out[6] * oy + out[10] * oz);
+    out[15] = 1;
 
-  return out;
+    return out;
 }
 
 /**
@@ -1266,10 +1266,10 @@ export function perspective(out, fovy, aspect, near, far) {
  * @returns {mat4} out
  */
 export function perspectiveFromFieldOfView(out, fov, near, far) {
-    var upTan = Math.tan(fov.upDegrees * Math.PI/180.0),
-        downTan = Math.tan(fov.downDegrees * Math.PI/180.0),
-        leftTan = Math.tan(fov.leftDegrees * Math.PI/180.0),
-        rightTan = Math.tan(fov.rightDegrees * Math.PI/180.0),
+    var upTan = Math.tan(fov.upDegrees * Math.PI / 180.0),
+        downTan = Math.tan(fov.downDegrees * Math.PI / 180.0),
+        leftTan = Math.tan(fov.leftDegrees * Math.PI / 180.0),
+        rightTan = Math.tan(fov.rightDegrees * Math.PI / 180.0),
         xScale = 2.0 / (leftTan + rightTan),
         yScale = 2.0 / (upTan + downTan);
 
@@ -1434,7 +1434,7 @@ export function str(a) {
  * @returns {Number} Frobenius norm
  */
 export function frob(a) {
-    return(Math.sqrt(Math.pow(a[0], 2) + Math.pow(a[1], 2) + Math.pow(a[2], 2) + Math.pow(a[3], 2) + Math.pow(a[4], 2) + Math.pow(a[5], 2) + Math.pow(a[6], 2) + Math.pow(a[7], 2) + Math.pow(a[8], 2) + Math.pow(a[9], 2) + Math.pow(a[10], 2) + Math.pow(a[11], 2) + Math.pow(a[12], 2) + Math.pow(a[13], 2) + Math.pow(a[14], 2) + Math.pow(a[15], 2) ))
+    return (Math.sqrt(Math.pow(a[0], 2) + Math.pow(a[1], 2) + Math.pow(a[2], 2) + Math.pow(a[3], 2) + Math.pow(a[4], 2) + Math.pow(a[5], 2) + Math.pow(a[6], 2) + Math.pow(a[7], 2) + Math.pow(a[8], 2) + Math.pow(a[9], 2) + Math.pow(a[10], 2) + Math.pow(a[11], 2) + Math.pow(a[12], 2) + Math.pow(a[13], 2) + Math.pow(a[14], 2) + Math.pow(a[15], 2)));
 }
 
 /**
@@ -1497,7 +1497,7 @@ export function subtract(out, a, b) {
  * Alias for {@link mat4.subtract}
  * @function
  */
-export {subtract as sub}
+export {subtract as sub};
 
 /**
  * Multiply each element of the matrix by a scalar.

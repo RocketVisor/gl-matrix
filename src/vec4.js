@@ -287,7 +287,7 @@ export function distance(a, b) {
         y = b[1] - a[1],
         z = b[2] - a[2],
         w = b[3] - a[3];
-    return Math.sqrt(x*x + y*y + z*z + w*w);
+    return Math.sqrt(x * x + y * y + z * z + w * w);
 }
 
 /**
@@ -308,7 +308,7 @@ export function squaredDistance(a, b) {
         y = b[1] - a[1],
         z = b[2] - a[2],
         w = b[3] - a[3];
-    return x*x + y*y + z*z + w*w;
+    return x * x + y * y + z * z + w * w;
 }
 
 /**
@@ -328,7 +328,7 @@ export function length(a) {
         y = a[1],
         z = a[2],
         w = a[3];
-    return Math.sqrt(x*x + y*y + z*z + w*w);
+    return Math.sqrt(x * x + y * y + z * z + w * w);
 }
 
 /**
@@ -348,7 +348,7 @@ export function squaredLength(a) {
         y = a[1],
         z = a[2],
         w = a[3];
-    return x*x + y*y + z*z + w*w;
+    return x * x + y * y + z * z + w * w;
 }
 
 /**
@@ -380,11 +380,11 @@ export function negate(out, a) {
  * @returns {vec4} out
  */
 export function inverse(out, a) {
-  out[0] = 1.0 / a[0];
-  out[1] = 1.0 / a[1];
-  out[2] = 1.0 / a[2];
-  out[3] = 1.0 / a[3];
-  return out;
+    out[0] = 1.0 / a[0];
+    out[1] = 1.0 / a[1];
+    out[2] = 1.0 / a[2];
+    out[3] = 1.0 / a[3];
+    return out;
 }
 
 /**
@@ -399,7 +399,7 @@ export function normalize(out, a) {
         y = a[1],
         z = a[2],
         w = a[3];
-    var len = x*x + y*y + z*z + w*w;
+    var len = x * x + y * y + z * z + w * w;
     if (len > 0) {
         len = 1 / Math.sqrt(len);
         out[0] = x * len;
@@ -521,24 +521,24 @@ var vec = create();
  */
 export function forEach(a, stride, offset, count, fn, arg) {
     var i, l;
-    if(!stride) {
+    if (!stride) {
         stride = 4;
     }
 
-    if(!offset) {
+    if (!offset) {
         offset = 0;
     }
 
-    if(count) {
+    if (count) {
         l = Math.min((count * stride) + offset, a.length);
     } else {
         l = a.length;
     }
 
-    for(i = offset; i < l; i += stride) {
-        vec[0] = a[i]; vec[1] = a[i+1]; vec[2] = a[i+2]; vec[3] = a[i+3];
+    for (i = offset; i < l; i += stride) {
+        vec[0] = a[i]; vec[1] = a[i + 1]; vec[2] = a[i + 2]; vec[3] = a[i + 3];
         fn(vec, vec, arg);
-        a[i] = vec[0]; a[i+1] = vec[1]; a[i+2] = vec[2]; a[i+3] = vec[3];
+        a[i] = vec[0]; a[i + 1] = vec[1]; a[i + 2] = vec[2]; a[i + 3] = vec[3];
     }
 
     return a;
