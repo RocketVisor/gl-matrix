@@ -1,5 +1,5 @@
 describe("vec2", function() {
-    var vec2 = require("../../src/gl-matrix/vec2.js");
+    var vec2 = require("../../src/vec2.js");
 
     var out, vecA, vecB, result;
 

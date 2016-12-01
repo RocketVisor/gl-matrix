@@ -1,7 +1,7 @@
 describe("mat3", function() {
-    var mat3 = require("../../src/gl-matrix/mat3.js");
-    var mat4 = require("../../src/gl-matrix/mat4.js");
-    var vec3 = require("../../src/gl-matrix/vec3.js");
+    var mat3 = require("../../src/mat3.js");
+    var mat4 = require("../../src/mat4.js");
+    var vec3 = require("../../src/vec3.js");
 
     var out, matA, matB, identity, result;
 

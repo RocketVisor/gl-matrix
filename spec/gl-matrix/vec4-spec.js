@@ -1,6 +1,6 @@
 describe("vec4", function() {
-    var vec3 = require("../../src/gl-matrix/vec3.js");
-    var vec4 = require("../../src/gl-matrix/vec4.js");
+    var vec3 = require("../../src/vec3.js");
+    var vec4 = require("../../src/vec4.js");
 
     var out, vecA, vecB, result;
 

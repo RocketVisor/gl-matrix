@@ -1,5 +1,5 @@
 describe("mat2", function() {
-    var mat2 = require("../../src/gl-matrix/mat2.js");
+    var mat2 = require("../../src/mat2.js");
 
     var out, matA, matB, identity, result;
 
