@@ -1,5 +1,16 @@
+## Fork notice
+
+This is a fork of [gl-matrix](https://github.com/toji/gl-matrix) with the following changes:
+
+- Converted to ES6 modules and Rollup to be able to create slim customized builds.
+- Removed all SIMD code since its proper browser support is a very distant prospect.
+- Cleaned the code with ESLint.
+- Ditched unnecessary constants and utility functions in `common.js`.
+- Removed the fuzzy `equals` (not useful enough to justify the bloat) and renamed `exactEquals` to `equals`.
+
 glMatrix
 =======================
+
 [![Build Status](https://travis-ci.org/toji/gl-matrix.svg)](https://travis-ci.org/toji/gl-matrix)
 
 Javascript has evolved into a language capable of handling realtime 3D graphics,
