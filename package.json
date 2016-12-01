@@ -27,12 +27,14 @@
     "eslint-config-mourner": "^2.0.1",
     "jasmine-node": "1.14.5",
     "rollup": "^0.36.4",
-    "rollup-watch": "^2.5.0"
+    "rollup-watch": "^2.5.0",
+    "uglify-js": "^2.7.5"
   },
   "license": "MIT",
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "watch": "rollup -c rollup.config.js -w",
+    "build-min": "npm run build && uglifyjs dist/gl-matrix.js -c -m > dist/gl-matrix-min.js",
     "pretest": "npm run build",
     "test": "jasmine-node spec",
     "lint": "eslint src"
