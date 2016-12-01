@@ -1,23 +1,3 @@
-/* Copyright (c) 2015, Brandon Jones, Colin MacKenzie IV.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE. */
-
 describe("quat", function() {
     var mat3 = require("../../src/gl-matrix/mat3.js");
     var mat4 = require("../../src/gl-matrix/mat4.js");
@@ -393,11 +373,11 @@ describe("quat", function() {
             it("should create the same quaternion from axis and angle extracted", function() { expect(quatA).toBeEqualish(quatB); });
         });
     });
-    
+
     describe("add", function() {
         describe("with a separate output quaternion", function() {
             beforeEach(function() { result = quat.add(out, quatA, quatB); });
-            
+
             it("should place values into out", function() { expect(out).toBeEqualish([6, 8, 10, 12]); });
             it("should return out", function() { expect(result).toBe(out); });
             it("should not modify quatA", function() { expect(quatA).toBeEqualish([1, 2, 3, 4]); });
@@ -406,7 +386,7 @@ describe("quat", function() {
 
         describe("when quatA is the output quaternion", function() {
             beforeEach(function() { result = quat.add(quatA, quatA, quatB); });
-            
+
             it("should place values into quatA", function() { expect(quatA).toBeEqualish([6, 8, 10, 12]); });
             it("should return quatA", function() { expect(result).toBe(quatA); });
             it("should not modify quatB", function() { expect(quatB).toBeEqualish([5, 6, 7, 8]); });
@@ -414,7 +394,7 @@ describe("quat", function() {
 
         describe("when quatB is the output quaternion", function() {
             beforeEach(function() { result = quat.add(quatB, quatA, quatB); });
-            
+
             it("should place values into quatB", function() { expect(quatB).toBeEqualish([6, 8, 10, 12]); });
             it("should return quatB", function() { expect(result).toBe(quatB); });
             it("should not modify quatA", function() { expect(quatA).toBeEqualish([1, 2, 3, 4]); });
@@ -426,7 +406,7 @@ describe("quat", function() {
 
         describe("with a separate output quaternion", function() {
             beforeEach(function() { result = quat.multiply(out, quatA, quatB); });
-            
+
             it("should place values into out", function() { expect(out).toBeEqualish([24, 48, 48, -6]); });
             it("should return out", function() { expect(result).toBe(out); });
             it("should not modify quatA", function() { expect(quatA).toBeEqualish([1, 2, 3, 4]); });
@@ -435,7 +415,7 @@ describe("quat", function() {
 
         describe("when quatA is the output quaternion", function() {
             beforeEach(function() { result = quat.multiply(quatA, quatA, quatB); });
-            
+
             it("should place values into quatA", function() { expect(quatA).toBeEqualish([24, 48, 48, -6]); });
             it("should return quatA", function() { expect(result).toBe(quatA); });
             it("should not modify quatB", function() { expect(quatB).toBeEqualish([5, 6, 7, 8]); });
@@ -443,7 +423,7 @@ describe("quat", function() {
 
         describe("when quatB is the output quaternion", function() {
             beforeEach(function() { result = quat.multiply(quatB, quatA, quatB); });
-            
+
             it("should place values into quatB", function() { expect(quatB).toBeEqualish([24, 48, 48, -6]); });
             it("should return quatB", function() { expect(result).toBe(quatB); });
             it("should not modify quatA", function() { expect(quatA).toBeEqualish([1, 2, 3, 4]); });
@@ -453,7 +433,7 @@ describe("quat", function() {
     describe("scale", function() {
         describe("with a separate output quaternion", function() {
             beforeEach(function() { result = quat.scale(out, quatA, 2); });
-            
+
             it("should place values into out", function() { expect(out).toBeEqualish([2, 4, 6, 8]); });
             it("should return out", function() { expect(result).toBe(out); });
             it("should not modify quatA", function() { expect(quatA).toBeEqualish([1, 2, 3, 4]); });
@@ -461,7 +441,7 @@ describe("quat", function() {
 
         describe("when quatA is the output quaternion", function() {
             beforeEach(function() { result = quat.scale(quatA, quatA, 2); });
-            
+
             it("should place values into quatA", function() { expect(quatA).toBeEqualish([2, 4, 6, 8]); });
             it("should return quatA", function() { expect(result).toBe(quatA); });
         });
@@ -471,7 +451,7 @@ describe("quat", function() {
         it("should have an alias called 'len'", function() { expect(quat.len).toEqual(quat.length); });
 
         beforeEach(function() { result = quat.length(quatA); });
-        
+
         it("should return the length", function() { expect(result).toBeCloseTo(5.477225); });
     });
 
@@ -479,7 +459,7 @@ describe("quat", function() {
         it("should have an alias called 'sqrLen'", function() { expect(quat.sqrLen).toEqual(quat.squaredLength); });
 
         beforeEach(function() { result = quat.squaredLength(quatA); });
-        
+
         it("should return the squared length", function() { expect(result).toEqual(30); });
     });
 
@@ -488,7 +468,7 @@ describe("quat", function() {
 
         describe("with a separate output quaternion", function() {
             beforeEach(function() { result = quat.normalize(out, quatA); });
-            
+
             it("should place values into out", function() { expect(out).toBeEqualish([1, 0, 0, 0]); });
             it("should return out", function() { expect(result).toBe(out); });
             it("should not modify quatA", function() { expect(quatA).toBeEqualish([5, 0, 0, 0]); });
@@ -496,7 +476,7 @@ describe("quat", function() {
 
         describe("when quatA is the output quaternion", function() {
             beforeEach(function() { result = quat.normalize(quatA, quatA); });
-            
+
             it("should place values into quatA", function() { expect(quatA).toBeEqualish([1, 0, 0, 0]); });
             it("should return quatA", function() { expect(result).toBe(quatA); });
         });
@@ -505,7 +485,7 @@ describe("quat", function() {
     describe("lerp", function() {
         describe("with a separate output quaternion", function() {
             beforeEach(function() { result = quat.lerp(out, quatA, quatB, 0.5); });
-            
+
             it("should place values into out", function() { expect(out).toBeEqualish([3, 4, 5, 6]); });
             it("should return out", function() { expect(result).toBe(out); });
             it("should not modify quatA", function() { expect(quatA).toBeEqualish([1, 2, 3, 4]); });
@@ -514,7 +494,7 @@ describe("quat", function() {
 
         describe("when quatA is the output quaternion", function() {
             beforeEach(function() { result = quat.lerp(quatA, quatA, quatB, 0.5); });
-            
+
             it("should place values into quatA", function() { expect(quatA).toBeEqualish([3, 4, 5, 6]); });
             it("should return quatA", function() { expect(result).toBe(quatA); });
             it("should not modify quatB", function() { expect(quatB).toBeEqualish([5, 6, 7, 8]); });
@@ -522,7 +502,7 @@ describe("quat", function() {
 
         describe("when quatB is the output quaternion", function() {
             beforeEach(function() { result = quat.lerp(quatB, quatA, quatB, 0.5); });
-            
+
             it("should place values into quatB", function() { expect(quatB).toBeEqualish([3, 4, 5, 6]); });
             it("should return quatB", function() { expect(result).toBe(quatB); });
             it("should not modify quatA", function() { expect(quatA).toBeEqualish([1, 2, 3, 4]); });
@@ -532,7 +512,7 @@ describe("quat", function() {
     /*describe("slerp", function() {
         describe("with a separate output quaternion", function() {
             beforeEach(function() { result = quat.slerp(out, quatA, quatB, 0.5); });
-            
+
             it("should place values into out", function() { expect(out).toBeEqualish([3, 4, 5, 6]); });
             it("should return out", function() { expect(result).toBe(out); });
             it("should not modify quatA", function() { expect(quatA).toBeEqualish([1, 2, 3, 4]); });
@@ -541,7 +521,7 @@ describe("quat", function() {
 
         describe("when quatA is the output quaternion", function() {
             beforeEach(function() { result = quat.slerp(quatA, quatA, quatB, 0.5); });
-            
+
             it("should place values into quatA", function() { expect(quatA).toBeEqualish([3, 4, 5, 6]); });
             it("should return quatA", function() { expect(result).toBe(quatA); });
             it("should not modify quatB", function() { expect(quatB).toBeEqualish([5, 6, 7, 8]); });
@@ -549,7 +529,7 @@ describe("quat", function() {
 
         describe("when quatB is the output quaternion", function() {
             beforeEach(function() { result = quat.slerp(quatB, quatA, quatB, 0.5); });
-            
+
             it("should place values into quatB", function() { expect(quatB).toBeEqualish([3, 4, 5, 6]); });
             it("should return quatB", function() { expect(result).toBe(quatB); });
             it("should not modify quatA", function() { expect(quatA).toBeEqualish([1, 2, 3, 4]); });
@@ -561,7 +541,7 @@ describe("quat", function() {
     describe("invert", function() {
         describe("with a separate output quaternion", function() {
             beforeEach(function() { result = quat.invert(out, quatA); });
-            
+
             it("should place values into out", function() { expect(out).toBeEqualish([-0.033333, -0.066666, -0.1, 0.133333]); });
             it("should return out", function() { expect(result).toBe(out); });
             it("should not modify quatA", function() { expect(quatA).toBeEqualish([1, 2, 3, 4]); });
@@ -569,7 +549,7 @@ describe("quat", function() {
 
         describe("when quatA is the output quaternion", function() {
             beforeEach(function() { result = quat.invert(quatA, quatA); });
-            
+
             it("should place values into quatA", function() { expect(quatA).toBeEqualish([-0.033333, -0.066666, -0.1, 0.133333]); });
             it("should return quatA", function() { expect(result).toBe(quatA); });
         });
@@ -578,7 +558,7 @@ describe("quat", function() {
     describe("conjugate", function() {
         describe("with a separate output quaternion", function() {
             beforeEach(function() { result = quat.conjugate(out, quatA); });
-            
+
             it("should place values into out", function() { expect(out).toBeEqualish([-1, -2, -3, 4]); });
             it("should return out", function() { expect(result).toBe(out); });
             it("should not modify quatA", function() { expect(quatA).toBeEqualish([1, 2, 3, 4]); });
@@ -586,7 +566,7 @@ describe("quat", function() {
 
         describe("when quatA is the output quaternion", function() {
             beforeEach(function() { result = quat.conjugate(quatA, quatA); });
-            
+
             it("should place values into quatA", function() { expect(quatA).toBeEqualish([-1, -2, -3, 4]); });
             it("should return quatA", function() { expect(result).toBe(quatA); });
         });
@@ -594,7 +574,7 @@ describe("quat", function() {
 
     describe("str", function() {
         beforeEach(function() { result = quat.str(quatA); });
-        
+
         it("should return a string representation of the quaternion", function() { expect(result).toEqual("quat(1, 2, 3, 4)"); });
     });
 
