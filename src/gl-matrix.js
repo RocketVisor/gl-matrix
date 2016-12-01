@@ -1,9 +1,10 @@
-exports.glMatrix = require(".common.js");
-exports.mat2 = require(".mat2.js");
-exports.mat2d = require(".mat2d.js");
-exports.mat3 = require(".mat3.js");
-exports.mat4 = require(".mat4.js");
-exports.quat = require(".quat.js");
-exports.vec2 = require(".vec2.js");
-exports.vec3 = require(".vec3.js");
-exports.vec4 = require(".vec4.js");
+import * as mat2 from './mat2';
+import * as mat2d from './mat2d';
+import * as mat3 from './mat3';
+import * as mat4 from './mat4';
+import * as quat from './quat';
+import * as vec2 from './vec2';
+import * as vec3 from './vec3';
+import * as vec4 from './vec4';
+
+export {mat2, mat2d, mat3, mat4, quat, vec2, vec3, vec4};

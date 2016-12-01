@@ -1,9 +1,10 @@
-describe("quat", function() {
-    var mat3 = require("../../src/mat3.js");
-    var mat4 = require("../../src/mat4.js");
-    var quat = require("../../src/quat.js");
-    var vec3 = require("../../src/vec3.js");
+var glMatrix = require("../../dist/gl-matrix");
+var mat3 = glMatrix.mat3;
+var mat4 = glMatrix.mat4;
+var quat = glMatrix.quat;
+var vec3 = glMatrix.vec3;
 
+describe("quat", function() {
     var out, quatA, quatB, result;
     var vec, id, deg90;
 

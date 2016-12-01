@@ -1,7 +1,8 @@
-describe("vec4", function() {
-    var vec3 = require("../../src/vec3.js");
-    var vec4 = require("../../src/vec4.js");
+var glMatrix = require("../../dist/gl-matrix");
+var vec3 = glMatrix.vec3;
+var vec4 = glMatrix.vec4;
 
+describe("vec4", function() {
     var out, vecA, vecB, result;
 
     beforeEach(function() { vecA = [1, 2, 3, 4]; vecB = [5, 6, 7, 8]; out = [0, 0, 0, 0]; });

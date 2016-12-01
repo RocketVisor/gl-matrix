@@ -1,6 +1,7 @@
-var mat4 = require("../../src/mat4.js");
-var vec3 = require("../../src/vec3.js");
-var quat = require("../../src/quat.js");
+var glMatrix = require("../../dist/gl-matrix");
+var mat4 = glMatrix.mat4;
+var vec3 = glMatrix.vec3;
+var quat = glMatrix.quat;
 
 function buildMat4Tests() {
     return function() {

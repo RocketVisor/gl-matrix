@@ -1,6 +1,6 @@
-describe("mat2d", function() {
-    var mat2d = require("../../src/mat2d.js");
+var mat2d = require("../../dist/gl-matrix").mat2d;
 
+describe("mat2d", function() {
     var out, matA, matB, identity, result;
 
     beforeEach(function() {

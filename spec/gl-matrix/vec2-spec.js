@@ -1,6 +1,6 @@
-describe("vec2", function() {
-    var vec2 = require("../../src/vec2.js");
+var vec2 = require("../../dist/gl-matrix").vec2;
 
+describe("vec2", function() {
     var out, vecA, vecB, result;
 
     beforeEach(function() { vecA = [1, 2]; vecB = [3, 4]; out = [0, 0]; });

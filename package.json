@@ -22,10 +22,24 @@
     }
   ],
   "devDependencies": {
-    "jasmine-node": "1.14.5"
+    "eslint": "^3.11.1",
+    "eslint-config-mourner": "^2.0.1",
+    "jasmine-node": "1.14.5",
+    "rollup": "^0.36.4",
+    "rollup-watch": "^2.5.0"
   },
   "license": "MIT",
   "scripts": {
-    "test": "jasmine-node spec"
+    "build": "rollup -c rollup.config.js",
+    "watch": "rollup -c rollup.config.js -w",
+    "pretest": "npm run build",
+    "test": "jasmine-node spec",
+    "lint": "eslint src"
+  },
+  "eslintConfig": {
+    "extends": "mourner",
+    "parserOptions": {
+      "sourceType": "module"
+    }
   }
 }
