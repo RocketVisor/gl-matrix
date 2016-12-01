@@ -12,7 +12,7 @@ var mat3 = {};
  * @returns {mat3} a new 3x3 matrix
  */
 mat3.create = function() {
-    var out = new glMatrix.ARRAY_TYPE(9);
+    var out = new Float32Array(9);
     out[0] = 1;
     out[1] = 0;
     out[2] = 0;
@@ -52,7 +52,7 @@ mat3.fromMat4 = function(out, a) {
  * @returns {mat3} a new 3x3 matrix
  */
 mat3.clone = function(a) {
-    var out = new glMatrix.ARRAY_TYPE(9);
+    var out = new Float32Array(9);
     out[0] = a[0];
     out[1] = a[1];
     out[2] = a[2];
@@ -100,7 +100,7 @@ mat3.copy = function(out, a) {
  * @returns {mat3} A new mat3
  */
 mat3.fromValues = function(m00, m01, m02, m10, m11, m12, m20, m21, m22) {
-    var out = new glMatrix.ARRAY_TYPE(9);
+    var out = new Float32Array(9);
     out[0] = m00;
     out[1] = m01;
     out[2] = m02;

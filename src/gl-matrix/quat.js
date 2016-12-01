@@ -15,7 +15,7 @@ var quat = {};
  * @returns {quat} a new quaternion
  */
 quat.create = function() {
-    var out = new glMatrix.ARRAY_TYPE(4);
+    var out = new Float32Array(4);
     out[0] = 0;
     out[1] = 0;
     out[2] = 0;

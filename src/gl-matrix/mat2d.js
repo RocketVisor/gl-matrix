@@ -26,7 +26,7 @@ var mat2d = {};
  * @returns {mat2d} a new 2x3 matrix
  */
 mat2d.create = function() {
-    var out = new glMatrix.ARRAY_TYPE(6);
+    var out = new Float32Array(6);
     out[0] = 1;
     out[1] = 0;
     out[2] = 0;
@@ -43,7 +43,7 @@ mat2d.create = function() {
  * @returns {mat2d} a new 2x3 matrix
  */
 mat2d.clone = function(a) {
-    var out = new glMatrix.ARRAY_TYPE(6);
+    var out = new Float32Array(6);
     out[0] = a[0];
     out[1] = a[1];
     out[2] = a[2];
@@ -98,7 +98,7 @@ mat2d.identity = function(out) {
  * @returns {mat2d} A new mat2d
  */
 mat2d.fromValues = function(a, b, c, d, tx, ty) {
-    var out = new glMatrix.ARRAY_TYPE(6);
+    var out = new Float32Array(6);
     out[0] = a;
     out[1] = b;
     out[2] = c;

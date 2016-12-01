@@ -12,7 +12,7 @@ var vec4 = {};
  * @returns {vec4} a new 4D vector
  */
 vec4.create = function() {
-    var out = new glMatrix.ARRAY_TYPE(4);
+    var out = new Float32Array(4);
     out[0] = 0;
     out[1] = 0;
     out[2] = 0;
@@ -27,7 +27,7 @@ vec4.create = function() {
  * @returns {vec4} a new 4D vector
  */
 vec4.clone = function(a) {
-    var out = new glMatrix.ARRAY_TYPE(4);
+    var out = new Float32Array(4);
     out[0] = a[0];
     out[1] = a[1];
     out[2] = a[2];
@@ -45,7 +45,7 @@ vec4.clone = function(a) {
  * @returns {vec4} a new 4D vector
  */
 vec4.fromValues = function(x, y, z, w) {
-    var out = new glMatrix.ARRAY_TYPE(4);
+    var out = new Float32Array(4);
     out[0] = x;
     out[1] = y;
     out[2] = z;
@@ -456,10 +456,10 @@ vec4.random = function (out, scale) {
     scale = scale || 1.0;
 
     //TODO: This is a pretty awful way of doing this. Find something better.
-    out[0] = glMatrix.RANDOM();
-    out[1] = glMatrix.RANDOM();
-    out[2] = glMatrix.RANDOM();
-    out[3] = glMatrix.RANDOM();
+    out[0] = Math.random();
+    out[1] = Math.random();
+    out[2] = Math.random();
+    out[3] = Math.random();
     vec4.normalize(out, out);
     vec4.scale(out, out, scale);
     return out;

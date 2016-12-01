@@ -14,7 +14,7 @@ var mat4 = {
  * @returns {mat4} a new 4x4 matrix
  */
 mat4.create = function() {
-    var out = new glMatrix.ARRAY_TYPE(16);
+    var out = new Float32Array(16);
     out[0] = 1;
     out[1] = 0;
     out[2] = 0;
@@ -41,7 +41,7 @@ mat4.create = function() {
  * @returns {mat4} a new 4x4 matrix
  */
 mat4.clone = function(a) {
-    var out = new glMatrix.ARRAY_TYPE(16);
+    var out = new Float32Array(16);
     out[0] = a[0];
     out[1] = a[1];
     out[2] = a[2];
@@ -110,7 +110,7 @@ mat4.copy = function(out, a) {
  * @returns {mat4} A new mat4
  */
 mat4.fromValues = function(m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, m31, m32, m33) {
-    var out = new glMatrix.ARRAY_TYPE(16);
+    var out = new Float32Array(16);
     out[0] = m00;
     out[1] = m01;
     out[2] = m02;

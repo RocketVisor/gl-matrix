@@ -12,7 +12,7 @@ var vec3 = {};
  * @returns {vec3} a new 3D vector
  */
 vec3.create = function() {
-    var out = new glMatrix.ARRAY_TYPE(3);
+    var out = new Float32Array(3);
     out[0] = 0;
     out[1] = 0;
     out[2] = 0;
@@ -26,7 +26,7 @@ vec3.create = function() {
  * @returns {vec3} a new 3D vector
  */
 vec3.clone = function(a) {
-    var out = new glMatrix.ARRAY_TYPE(3);
+    var out = new Float32Array(3);
     out[0] = a[0];
     out[1] = a[1];
     out[2] = a[2];
@@ -42,7 +42,7 @@ vec3.clone = function(a) {
  * @returns {vec3} a new 3D vector
  */
 vec3.fromValues = function(x, y, z) {
-    var out = new glMatrix.ARRAY_TYPE(3);
+    var out = new Float32Array(3);
     out[0] = x;
     out[1] = y;
     out[2] = z;
@@ -498,8 +498,8 @@ vec3.bezier = function (out, a, b, c, d, t) {
 vec3.random = function (out, scale) {
     scale = scale || 1.0;
 
-    var r = glMatrix.RANDOM() * 2.0 * Math.PI;
-    var z = (glMatrix.RANDOM() * 2.0) - 1.0;
+    var r = Math.random() * 2.0 * Math.PI;
+    var z = (Math.random() * 2.0) - 1.0;
     var zScale = Math.sqrt(1.0-z*z) * scale;
 
     out[0] = Math.cos(r) * zScale;

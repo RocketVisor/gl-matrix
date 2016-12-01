@@ -12,7 +12,7 @@ var mat2 = {};
  * @returns {mat2} a new 2x2 matrix
  */
 mat2.create = function() {
-    var out = new glMatrix.ARRAY_TYPE(4);
+    var out = new Float32Array(4);
     out[0] = 1;
     out[1] = 0;
     out[2] = 0;
@@ -27,7 +27,7 @@ mat2.create = function() {
  * @returns {mat2} a new 2x2 matrix
  */
 mat2.clone = function(a) {
-    var out = new glMatrix.ARRAY_TYPE(4);
+    var out = new Float32Array(4);
     out[0] = a[0];
     out[1] = a[1];
     out[2] = a[2];
@@ -74,7 +74,7 @@ mat2.identity = function(out) {
  * @returns {mat2} out A new 2x2 matrix
  */
 mat2.fromValues = function(m00, m01, m10, m11) {
-    var out = new glMatrix.ARRAY_TYPE(4);
+    var out = new Float32Array(4);
     out[0] = m00;
     out[1] = m01;
     out[2] = m10;
