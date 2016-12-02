@@ -1,7 +1,7 @@
 {
-  "name": "gl-matrix",
-  "description": "Javascript Matrix and Vector library for High Performance WebGL apps",
-  "version": "2.3.2",
+  "name": "@mapbox/gl-matrix",
+  "description": "Javascript Matrix and Vector library for High Performance WebGL apps (Mapbox custom build)",
+  "version": "0.0.1",
   "main": "dist/gl-matrix.js",
   "jsnext:main": "src/gl-matrix.js",
   "homepage": "http://glmatrix.net",
